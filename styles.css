@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(101, 194, 237); */
+    /* background-color: rgb(119, 117, 233); */
+    background-color: rgb(116, 165, 235);
+    font-family: 'Madimi One';
+}
+
+#background {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    transition: opacity 1s ease;
+}
+
+h1 {
+    color: rgb(18, 21, 108);
+    text-shadow: 3px 2px 2px white;
+    border: whitesmoke;
+    border-width: 50px;
+}
+
+#start {
+    position: absolute;
+    transition-duration: 0.5s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+#startButton  {
+    background-color: whitesmoke;
+    color: rgb(18, 66, 124);
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 25px  rgba(117, 231, 244, 0.542);
+    font-family: 'Madimi One';
+    font-size: 20px;
+    width: 100px;
+    height: 50px;
+    transition-duration: 2s;
+    transition: 1.5s;
+}
+
+#startButton:hover {
+    background-color: whitesmoke;
+    color: rgb(18, 66, 124);
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 25px  rgb(117, 231, 244);
+    font-family: 'Madimi One';
+    font-size: 20px;
+    background-color: rgba(220, 245, 249, 0.836);
+    letter-spacing: 2px;
+}
+
+#container {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    display: none;
+    background-color: rgba(245, 245, 245, 0.422);
+    color: rgb(18, 66, 124);
+    border-radius: 15px;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 2px 25px  rgba(86, 157, 219, 0.542);
+}
+
+#container .text{
+    color:  rgb(18, 66, 124);
+    text-shadow: 3px 2px 2px rgba(255, 255, 255, 0.584);
+    border: whitesmoke;
+}
+
+#bubble_machine {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.bubble {
+    width: 100px;
+    aspect-ratio: 1 / 1;  
+    position: absolute;
+    top: 100%;
+    pointer-events: all;
+    cursor: pointer;
+    transform: translateX(-50%);
+    animation: bubble_float 10s linear forwards;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes bubble_float {
+    100% { 
+        top: -130px; 
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+.bubble:after {
+    content:'';
+    width: 100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(117, 231, 244, 0.542);
+    background-size: auto 100%;
+    background-position: 0 0;
+    border-radius: 50%;
+    outline: 1px solid rgb(173, 240, 255);
+    text-align: center;
+}
+
+.pop_bubble:after {
+    animation: pop_bubble .3s steps(3) forwards;
+}
+@keyframes pop_bubble {
+    100% { 
+        transform: scale(-2);
+        background-position: -600% 0;
+    }
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+    width: 200px;
+    transition: border-color 0.3s;
+    font-family: 'Madimi One';
+}
+
+#textButton {
+    position: relative;
+    background-color: whitesmoke;
+    border: none;
+    color: rgb(18, 66, 124);
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Madimi One';
+    border-radius: 20px;
+}
+
+#textButton:after {
+    content: "";
+    background-color: rgba(117, 231, 244, 0.542);
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -10px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#textButton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
